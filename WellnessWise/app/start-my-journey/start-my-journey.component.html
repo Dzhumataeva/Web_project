@@ -1,0 +1,38 @@
+<ng-container *ngIf="!isRegistered">
+<div class="sign-in-page">
+  <div class="sign-in-form-container">
+    <p class="login-text">Start your journey!</p>
+    <form>
+      <div class="field-wrapper">
+        <label class="input-label"   >Username</label>
+        <div class="input-wrapper">
+          <div class="input-container">
+            <input class="input"  placeholder="Username" [(ngModel)]="username" name="username" required>
+          </div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <label  class="input-label" >Email</label>
+        <div class="input-wrapper">
+          <div class="input-container">
+            <input class="input" type="email" [(ngModel)]="email" placeholder="Email"  name="email" required>
+          </div>
+        </div>
+      </div>
+      <div class="field-wrapper">
+        <label  class="input-label"  >Password</label>
+        <div class="input-wrapper">
+          <div class="input-container">
+            <input class="input" type="password"   [(ngModel)]="password" placeholder="Password" name="password" required>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="login-button" (click)="signUp()">Sign up</button>
+    </form>
+
+  </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isRegistered">
+  <app-log-in></app-log-in>
+</ng-container>

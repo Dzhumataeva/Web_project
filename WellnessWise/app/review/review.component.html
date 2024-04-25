@@ -1,0 +1,29 @@
+<div class="main">
+  <h2>Customer Reviews</h2>
+  <div class="review-container">
+    <div class="review" *ngFor="let review of reviews">
+        <div class="review-author">
+          <p class="names">{{review.username}}</p>
+        </div>
+        <div class="review-text">
+          <p>{{review.description}}</p>
+        </div>
+      <button *ngIf="authService.isLoggedIn()" (click)="deleteReview(review.id,review.username)">
+        <img src="assets/can.png">
+      </button>
+    </div>
+  </div>
+  <div class="reviews-section">
+    <div class="feedback-section" *ngIf="authService.isLoggedIn()">
+      <h3>Your feedback is incredibly valuable to us!<br>
+        If you have a spare minute, please consider leaving a review to help us<br>
+        improve our website and serve you better.</h3>
+      <fieldset class="review-fieldset" *ngIf="authService.isLoggedIn()">
+        <textarea [(ngModel)]="newReview" placeholder="Write your review" class="review-input inp"></textarea>
+        <button (click)="addReview()" class="review-button">Submit</button>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+
